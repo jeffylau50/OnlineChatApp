@@ -1,7 +1,9 @@
 import React from 'react';
 import { GoogleOutlined, FacebookOutlined } from '@ant-design/icons'
 import './Login.css'
-import '../Pics/homeLogo.PNG'
+import firebase from "firebase/compat/app";
+import 'firebase/compat/app';
+import { auth }  from '../firebase';
 
 function Login(){
     return(
@@ -9,7 +11,7 @@ function Login(){
     <div id='log-card'>
     <img src='https://res.cloudinary.com/djgjwxdih/image/upload/v1649463298/homeLogo_zasc7k.png' />
     <br/>
-    <div className='log-button google'>
+    <div onClick={()=> auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())} className='log-button google'>
     <GoogleOutlined /> Sign in with your Google
     </div>
     < br/>
