@@ -1,21 +1,28 @@
 import React, { useContext } from 'react';
-
 import { useNavigate } from 'react-router-dom';
-import { ChatEngine } from 'react-chat-engine';
-import { auth } from '../firebase'
+import { auth, firestore } from '../firebase'
 import { useAuth } from '../context/AuthContext.js'
+import Message from './message.js'
 import './chat.css'
+import {useCollectionData} from 'react-firebase-hooks/firestore';
 
-const projectid = process.env.projectId
+
 
 
 function Chat() {
+
+    const messageRef = firestore.collection('messages')
+    const query = messageRef.orderBy('createdAt').limit(25);
+    const [messages] = useCollectionData(query, {idField: 'id'});
 
     const Navigate = useNavigate();
     const { user } = useAuth();
     const handleLogout = async () => {
         await auth.signOut();
         Navigate("/")
+    }
+    const handleClick = () => {
+    console.dir(messages)
     }
 
     return(
@@ -24,13 +31,8 @@ function Chat() {
        <div className='logo-tab'>🍊OrangeChat</div>
        <div onClick={handleLogout} className='logout-tab'>Logout</div>
        </div>
-
-       <ChatEngine
-      height="calc(100vh - 66px)"
-      projectId={''}
-      userName={''}
-      userSecret={''}
-    /> 
+{messages && messages.map(msg => <Message key={msg.idField} message={msg} />)}
+<button onClick={handleClick}>test</button>       
 </div>
 )
 }
