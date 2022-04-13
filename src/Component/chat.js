@@ -8,13 +8,18 @@ import "./chat.css";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
 function Chat() {
-  const messageRef = firestore.collection("messages");
+
+const [formValue, setFormValue] = useState("");
+const [channelValue, setChannel] = useState('1');
+const [roomTitle, setTitle] = useState('Main Chat Room')
+const [imageLink, setLink] = useState("https://res.cloudinary.com/djgjwxdih/image/upload/v1649830546/imgbin-computer-icons-online-chat-chat-room-scalable-graphics-group-conversation-FTvhDcxejscKBR40nrHc9GtXe_ywhal5.jpg")
+
+  const messageRef = firestore.collection(channelValue);
   const query = messageRef.orderBy("createdAt").limit(25);
   const [messages] = useCollectionData(query, { idField: "id" });
 
 
-  const [formValue, setFormValue] = useState("");
-  const [channelValue, setChannel] = useState(1)
+ 
 
   const Navigate = useNavigate();
   const { user } = useAuth();
@@ -41,15 +46,22 @@ function Chat() {
   };
 
 
-  const channel1Click = () => {
-      setChannel(1)
+const channel1Click = () => {
+      setChannel('1')
+      setTitle('Main Chat Room')
+      setLink("https://res.cloudinary.com/djgjwxdih/image/upload/v1649830546/imgbin-computer-icons-online-chat-chat-room-scalable-graphics-group-conversation-FTvhDcxejscKBR40nrHc9GtXe_ywhal5.jpg")
   }
-  const channel2Click = () => {
-    setChannel(2)
+const channel2Click = () => {
+    setChannel('2')
+    setTitle('Soccer Chat Room')
+    setLink("https://res.cloudinary.com/djgjwxdih/image/upload/v1649831030/football-goal-with-sun-and-blue-sky_2341003_gmmu9j.jpg")
 }
 const channel3Click = () => {
-    setChannel(3)
+    setChannel('3')
+    setTitle('NBA Chat Room')
+    setLink("https://res.cloudinary.com/djgjwxdih/image/upload/v1649837533/121818_003_basket_wnnggd.jpg")
 }
+
 
 
   return (
@@ -74,7 +86,6 @@ const channel3Click = () => {
 </nav>
 
 
-
       
       <body>
         <div class="container-fluid h-100">
@@ -83,22 +94,15 @@ const channel3Click = () => {
               <div class="card mb-sm-3 mb-md-0 contacts_card">
                 <div class="card-header">
                   <div class="input-group">
-                    <input
-                      type="text"
-                      placeholder="Search..."
-                      name=""
-                      class="form-control search"
-                    />
+                   <h4>Select Chat Room</h4>
                     <div class="input-group-prepend">
-                      <span class="input-group-text search_btn">
-                        <i class="fas fa-search"></i>
-                      </span>
+                      
                     </div>
                   </div>
                 </div>
                 <div class="card-body contacts_body">
                   <ui class="contacts">
-                    <li onClick={channel1Click} className={channelValue===1?"active":''}>
+                    <li onClick={channel1Click} className={channelValue==1?"active":''}>
                       <div class="d-flex bd-highlight">
                         <div class="img_cont">
                           <img
@@ -113,7 +117,7 @@ const channel3Click = () => {
                         </div>
                       </div>
                     </li>
-                    <li onClick={channel2Click} className={channelValue===2?"active":''}>
+                    <li onClick={channel2Click} className={channelValue==2?"active":''}>
                       <div class="d-flex bd-highlight">
                         <div class="img_cont">
                           <img
@@ -128,7 +132,7 @@ const channel3Click = () => {
                         </div>
                       </div>
                     </li>
-                    <li onClick={channel3Click} className={channelValue===3?"active":''}>
+                    <li onClick={channel3Click} className={channelValue==3?"active":''}>
                       <div class="d-flex bd-highlight">
                         <div class="img_cont">
                           <img
@@ -154,13 +158,13 @@ const channel3Click = () => {
                   <div class="d-flex bd-highlight">
                     <div class="img_cont">
                       <img
-                        src="https://res.cloudinary.com/djgjwxdih/image/upload/v1649830546/imgbin-computer-icons-online-chat-chat-room-scalable-graphics-group-conversation-FTvhDcxejscKBR40nrHc9GtXe_ywhal5.jpg"
+                        src={imageLink}
                         class="rounded-circle user_img"
                       />
                       <span class="online_icon"></span>
                     </div>
                     <div class="user_info">
-                      <span>Main Chat Room</span>
+                      <span>{roomTitle}</span>
                     </div>
                   </div>
                   <span id="action_menu_btn">
