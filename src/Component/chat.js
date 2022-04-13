@@ -12,7 +12,9 @@ function Chat() {
   const query = messageRef.orderBy("createdAt").limit(25);
   const [messages] = useCollectionData(query, { idField: "id" });
 
+
   const [formValue, setFormValue] = useState("");
+  const [channelValue, setChannel] = useState(1)
 
   const Navigate = useNavigate();
   const { user } = useAuth();
@@ -38,14 +40,42 @@ function Chat() {
     setFormValue("");
   };
 
+
+  const channel1Click = () => {
+      setChannel(1)
+  }
+  const channel2Click = () => {
+    setChannel(2)
+}
+const channel3Click = () => {
+    setChannel(3)
+}
+
+
   return (
+
     <div className="chats-page">
-      <div className="nav-bar">
-        <div className="logo-tab">🍊OrangeChat</div>
-        <div onClick={handleLogout} className="logout-tab">
-          Logout
-        </div>
-      </div>
+        <nav class="navbar navbar-expand-lg navbar-light navCustom">
+  <a class="navbar-brand" href="#">&nbsp;&nbsp;🍊OrangeChat</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      
+    
+      
+      <li class="nav-item">
+        <div onClick={handleLogout} class="nav-link cursorpointer" >Logout</div>
+      </li>
+     
+    </ul>
+  </div>
+</nav>
+
+
+
+      
       <body>
         <div class="container-fluid h-100">
           <div class="row justify-content-center h-100">
@@ -68,48 +98,48 @@ function Chat() {
                 </div>
                 <div class="card-body contacts_body">
                   <ui class="contacts">
-                    <li class="active">
+                    <li onClick={channel1Click} className={channelValue===1?"active":''}>
                       <div class="d-flex bd-highlight">
                         <div class="img_cont">
                           <img
-                            src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                            src="https://res.cloudinary.com/djgjwxdih/image/upload/v1649830546/imgbin-computer-icons-online-chat-chat-room-scalable-graphics-group-conversation-FTvhDcxejscKBR40nrHc9GtXe_ywhal5.jpg"
                             class="rounded-circle user_img"
                           />
                           <span class="online_icon"></span>
                         </div>
                         <div class="user_info">
-                          <span>Chat Room</span>
+                          <span>Main Chat Room</span>
                           <p>online</p>
                         </div>
                       </div>
                     </li>
-                    <li>
+                    <li onClick={channel2Click} className={channelValue===2?"active":''}>
                       <div class="d-flex bd-highlight">
                         <div class="img_cont">
                           <img
-                            src="https://2.bp.blogspot.com/-8ytYF7cfPkQ/WkPe1-rtrcI/AAAAAAAAGqU/FGfTDVgkcIwmOTtjLka51vineFBExJuSACLcBGAs/s320/31.jpg"
-                            class="rounded-circle user_img"
-                          />
-                          <span class="online_icon offline"></span>
-                        </div>
-                        <div class="user_info">
-                          <span>Taherah Big</span>
-                          <p>Taherah left 7 mins ago</p>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="d-flex bd-highlight">
-                        <div class="img_cont">
-                          <img
-                            src="https://i.pinimg.com/originals/ac/b9/90/acb990190ca1ddbb9b20db303375bb58.jpg"
+                            src="https://res.cloudinary.com/djgjwxdih/image/upload/v1649831030/football-goal-with-sun-and-blue-sky_2341003_gmmu9j.jpg"
                             class="rounded-circle user_img"
                           />
                           <span class="online_icon"></span>
                         </div>
                         <div class="user_info">
-                          <span>Sami Rafi</span>
-                          <p>Sami is online</p>
+                          <span>Soccer Chat Room</span>
+                          <p>online</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li onClick={channel3Click} className={channelValue===3?"active":''}>
+                      <div class="d-flex bd-highlight">
+                        <div class="img_cont">
+                          <img
+                            src="https://res.cloudinary.com/djgjwxdih/image/upload/v1649837533/121818_003_basket_wnnggd.jpg"
+                            class="rounded-circle user_img"
+                          />
+                          <span class="online_icon"></span>
+                        </div>
+                        <div class="user_info">
+                          <span>NBA Chat Room</span>
+                          <p>Online</p>
                         </div>
                       </div>
                     </li>
@@ -124,13 +154,13 @@ function Chat() {
                   <div class="d-flex bd-highlight">
                     <div class="img_cont">
                       <img
-                        src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                        src="https://res.cloudinary.com/djgjwxdih/image/upload/v1649830546/imgbin-computer-icons-online-chat-chat-room-scalable-graphics-group-conversation-FTvhDcxejscKBR40nrHc9GtXe_ywhal5.jpg"
                         class="rounded-circle user_img"
                       />
                       <span class="online_icon"></span>
                     </div>
                     <div class="user_info">
-                      <span>Chat Room</span>
+                      <span>Main Chat Room</span>
                     </div>
                   </div>
                   <span id="action_menu_btn">

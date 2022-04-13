@@ -5,7 +5,16 @@
     width: 100vw;
     height: 100vh;
   }
-  
+
+  .cursorpointer{
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  .navCustom{
+    background-color: #d0d314;
+  }
+
   .nav-bar {
     width: 100%;
     height: 66px;
