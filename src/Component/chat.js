@@ -6,6 +6,8 @@ import { useAuth } from "../context/AuthContext.js";
 import Message from "./message.js";
 import "./chat.css";
 import { useCollectionData } from "react-firebase-hooks/firestore";
+import Picker from 'emoji-picker-react';
+
 
 function Chat() {
 
@@ -13,6 +15,9 @@ const [formValue, setFormValue] = useState("");
 const [channelValue, setChannel] = useState('1');
 const [roomTitle, setTitle] = useState('Main Chat Room')
 const [imageLink, setLink] = useState("https://res.cloudinary.com/djgjwxdih/image/upload/v1649830546/imgbin-computer-icons-online-chat-chat-room-scalable-graphics-group-conversation-FTvhDcxejscKBR40nrHc9GtXe_ywhal5.jpg")
+const [emojiToggle, setEmoji] = useState(false)
+const [chosenEmoji, setChosenEmoji] = useState(null);
+
 
   const messageRef = firestore.collection(channelValue);
   const query = messageRef.orderBy("createdAt").limit(25);
@@ -61,6 +66,15 @@ const channel3Click = () => {
     setTitle('NBA Chat Room')
     setLink("https://res.cloudinary.com/djgjwxdih/image/upload/v1649837533/121818_003_basket_wnnggd.jpg")
 }
+const toggleEmoji = () => {
+setEmoji(!emojiToggle)
+}
+
+
+  const onEmojiClick = (event, emojiObject) => {
+    setFormValue(prevInput => prevInput + emojiObject.emoji);
+    setEmoji(false)
+  }
 
 
 
@@ -147,11 +161,14 @@ const channel3Click = () => {
                         </div>
                       </div>
                     </li>
+
                   </ui>
+
                 </div>
                 <div class="card-footer"></div>
               </div>
             </div>
+
             <div class="col-md-8 col-xl-6 chat">
               <div class="card">
                 <div class="card-header msg_head">
@@ -176,11 +193,15 @@ const channel3Click = () => {
                     messages.map((msg) => (
                       <Message key={msg.id} message={msg} />
                     ))}
+                    
                 </div>
                 <div class="card-footer">
+
                   <div class="input-group">
+                  {emojiToggle&&<Picker onEmojiClick={onEmojiClick} />}
                     <div class="input-group-append"></div>
-                    <form className="formCSS" onSubmit={handleSubmit}>
+                    <form className="formCSS  customfield" onSubmit={handleSubmit}>
+                    <button onClick={toggleEmoji} type="button" className='attach_btn'>😀</button>
                       <textarea
                         className="form-control type_msg customInput1"
                         placeholder="Type your message..."
@@ -197,14 +218,16 @@ const channel3Click = () => {
                       </div>
                     </form>
                   </div>
+
                 </div>
+
               </div>
+
             </div>
           </div>
         </div>
       </body>
 
-      
     </div>
   );
 }

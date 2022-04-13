@@ -280,3 +280,7 @@ width: inherit;
 .formCSS{
   width: 100%;
 }
+
+.customfield{
+  display: flex;
+}
