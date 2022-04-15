@@ -69,9 +69,7 @@ const handleLogin = () => {
     <GoogleOutlined /> Sign in with Google
     </div>
     < br/>     < br/>
-    <div onClick={()=> auth.signInWithRedirect(new firebase.auth.FacebookAuthProvider())} className='log-button facebook'> 
-    <FacebookOutlined /> Sign in with Facebook
-    </div>
+
     </div>
     )
 }
