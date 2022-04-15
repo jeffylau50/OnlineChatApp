@@ -16,7 +16,6 @@ const [channelValue, setChannel] = useState('1');
 const [roomTitle, setTitle] = useState('Main Chat Room')
 const [imageLink, setLink] = useState("https://res.cloudinary.com/djgjwxdih/image/upload/v1649830546/imgbin-computer-icons-online-chat-chat-room-scalable-graphics-group-conversation-FTvhDcxejscKBR40nrHc9GtXe_ywhal5.jpg")
 const [emojiToggle, setEmoji] = useState(false)
-const [chosenEmoji, setChosenEmoji] = useState(null);
 
 
   const messageRef = firestore.collection(channelValue);
@@ -82,7 +81,7 @@ setEmoji(!emojiToggle)
 
     <div className="chats-page">
         <nav class="navbar navbar-expand-lg navbar-light navCustom">
-  <a class="navbar-brand" href="#">&nbsp;&nbsp;🍊OrangeChat</a>
+  <a class="navbar-brand">&nbsp;&nbsp;🍊OrangeChat</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
