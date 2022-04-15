@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import firebase from "firebase/compat/app";
 import { useNavigate } from "react-router-dom";
 import { auth, firestore } from "../firebase";
@@ -11,6 +11,7 @@ import Picker from 'emoji-picker-react';
 
 function Chat() {
 
+const ddy = useRef();
 const [formValue, setFormValue] = useState("");
 const [channelValue, setChannel] = useState('1');
 const [roomTitle, setTitle] = useState('Main Chat Room')
@@ -47,6 +48,7 @@ const [emojiToggle, setEmoji] = useState(false)
       displayName
         });
     setFormValue("");
+    ddy.current.scrollIntoView({behavior: 'smooth'})
   };
 
 
@@ -192,7 +194,7 @@ setEmoji(!emojiToggle)
                     messages.map((msg) => (
                       <Message key={msg.id} message={msg} />
                     ))}
-                    
+                <div ref={ddy}></div>
                 </div>
                 <div class="card-footer">
 

@@ -6,33 +6,57 @@ import firebase from "firebase/compat/app";
 import 'firebase/compat/app';
 import { auth }  from '../firebase';
 import { AuthContext } from '../context/AuthContext';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 
 function Login(){
 const { handleRegform } = useContext(AuthContext);
-const [userValue, setUser] = useState('');
+const [emailValue, setEmail] = useState('');
 const [pwValue, setPW] = useState('');
 const navigate = useNavigate();
+
+const auth1 = getAuth();
 
 const handleRegclick = (evt) => {
     handleRegform();
     navigate("/register")
 }
 
+const handleLogemail = (evt) => {
+    setEmail(evt.target.value)
+}
+
+const handleLogpw = (evt) => {
+    setPW(evt.target.value)
+}
+
+const handleLogin = () => {
+    signInWithEmailAndPassword(auth1, emailValue, pwValue)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+    navigate("/chat")
+  
+}
     return(
     <div id='log-card'>
     <img src='https://res.cloudinary.com/djgjwxdih/image/upload/v1649463298/homeLogo_zasc7k.png' />
-    <form className=''>
+    <form onSubmit={handleLogin}>
     <div className='card-body '>
     <div className="form-outline mb-1">
         <h3>Sign In</h3>
         <br />
-        <input placeholder='Username' type='text' className='form-control form-control-md' id='username'/>
+        <input onChange={handleLogemail} placeholder='Email' type='email' className='form-control form-control-md' id='email'/>
         </div>
         <br/>
         <div className="form-outline mb-3">
-        <input autoComplete="on" placeholder='Password' className='form-control form-control-md' type='password' id='password' />
+        <input onChange={handleLogpw} autoComplete="on" placeholder='Password' className='form-control form-control-md' type='password' id='password' />
         </div>
         <button className='btn btn-dark btn-lg btn-block'>SIGN IN</button>
         <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -42,7 +66,7 @@ const handleRegclick = (evt) => {
     <h3>- or -</h3>
     <br/>
     <div onClick={()=> auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())} className='log-button google'>
-    <GoogleOutlined /> Sign in with your Google
+    <GoogleOutlined /> Sign in with Google
     </div>
     < br/>     < br/>
     <div onClick={()=> auth.signInWithRedirect(new firebase.auth.FacebookAuthProvider())} className='log-button facebook'> 
