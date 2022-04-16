@@ -79,10 +79,10 @@ const auth = getAuth();
     
 return(
 
-<div id='log-card'>
-    <img src='https://res.cloudinary.com/djgjwxdih/image/upload/v1649463298/homeLogo_zasc7k.png' />
+<div id='reg-card'>
+    <img className="img-fluid" src='https://res.cloudinary.com/djgjwxdih/image/upload/v1649463298/homeLogo_zasc7k.png' />
     <form onSubmit={handleSubmit}>
-    <div className='card-body '>
+    <div className='card-body'>
     <div className="form-outline mb-1">
         <h3>Register New User</h3>
         <br/>
@@ -99,9 +99,9 @@ return(
         <br/>         <br/>
         <img src={iconValue} className='iconCustom'/>
         <br/> <br/> <br/>
-        <Link to='/'><button onClick={handleRegclick} className='btn btn-primary btn-lg btn-block'>GO BACK</button></Link>
+        <Link to='/'><button onClick={handleRegclick} className='btn btn-primary btn-lg btn-block customButtonsetting'>GO BACK</button></Link>
         <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <button className='btn btn-success btn-lg btn-block'>REGISTER</button>
+        <button className='btn btn-success btn-lg btn-block customButtonsetting'>REGISTER</button>
         </div>
     </form>
     </div>

@@ -48,8 +48,9 @@ const handleLogin = () => {
   
 }
     return(
+    <div class="">
     <div id='log-card'>
-    <img src='https://res.cloudinary.com/djgjwxdih/image/upload/v1649463298/homeLogo_zasc7k.png' />
+    <img className='img-fluid' src='https://res.cloudinary.com/djgjwxdih/image/upload/v1649463298/homeLogo_zasc7k.png' />
     <form onSubmit={handleLogin}>
     <div className='card-body '>
     <div className="form-outline mb-1">
@@ -61,14 +62,14 @@ const handleLogin = () => {
         <div className="form-outline mb-3">
         <input onChange={handleLogpw} autoComplete="on" placeholder='Password' className='form-control form-control-md' type='password' id='password' />
         </div>
-        <button className='btn btn-dark btn-lg btn-block'>SIGN IN</button>
+        <button className='btn btn-dark btn-lg btn-block customButtonsetting'>SIGN IN</button>
         <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <button onClick={handleRegclick} type='button' className='btn btn-warning btn-lg btn-block'>NEW USER</button>
+        <button onClick={handleRegclick} type='button' className='btn btn-warning btn-lg btn-block customButtonsetting'>NEW USER</button>
         </div>
     </form>
     <h3>- or -</h3>
     <br/>
-    <div onClick={()=> auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())} className='log-button google'>
+    <div onClick={()=> auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())} className='log-button google customGooglebutton'>
     <GoogleOutlined /> Sign in with Google
     </div>
     < br/>  
@@ -77,6 +78,8 @@ const handleLogin = () => {
    < br/>
 
     </div>
+    </div>
+
     )
 }
 
