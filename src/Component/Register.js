@@ -25,7 +25,7 @@ const randomIcon = () => {
     return result
 }
 
-const { handleRegform } = useContext(AuthContext);
+const { handleRegform, setError } = useContext(AuthContext);
 const [nameValue, setName] = useState('')
 const [emailValue, setEmail] = useState('')
 const [passwordValue, setPassword] = useState('')
@@ -54,6 +54,7 @@ const handleSubmit = () => {
       user1.updateProfile({
           displayName: nameValue, photoURL: iconValue
       })
+      setError(false)
       // ...
     })
     .catch((error) => {
@@ -61,6 +62,7 @@ const handleSubmit = () => {
       const errorMessage = error.message;
       // ..
     });
+    setError(true)
     handleRegform();
     navigate('/chat')
 

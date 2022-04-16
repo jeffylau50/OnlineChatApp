@@ -11,12 +11,13 @@ export const AuthProvider = ({ children }) => {
     const [loading, setloading] = useState(true);
     const [user, setUser] = useState(null);
     const [regFormvalue, setRegform] = useState(false);
-    
+    const [errorValue, setError] = useState(false)
+
     const navigate = useNavigate();
     const handleRegform = (evt) => {
         setRegform(!regFormvalue)
     }
-
+    
     useEffect(()=> {
     auth.onAuthStateChanged((user)=> {
         setUser(user);
@@ -36,7 +37,7 @@ export const AuthProvider = ({ children }) => {
     const value = { user };
 
     return(
-        <AuthContext.Provider value={{value, handleRegform}}>
+        <AuthContext.Provider value={{value, handleRegform, errorValue, setError}}>
             {!loading && children}
         </AuthContext.Provider>
     )

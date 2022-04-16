@@ -10,7 +10,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 
 function Login(){
-const { handleRegform } = useContext(AuthContext);
+const { handleRegform, errorValue, setError } = useContext(AuthContext);
 const [emailValue, setEmail] = useState('');
 const [pwValue, setPW] = useState('');
 const navigate = useNavigate();
@@ -19,6 +19,7 @@ const auth1 = getAuth();
 
 const handleRegclick = (evt) => {
     handleRegform();
+    setError(false)
     navigate("/register")
 }
 
@@ -40,7 +41,9 @@ const handleLogin = () => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      setError(true)
     });
+    setError(false)
     navigate("/chat")
   
 }
@@ -68,7 +71,10 @@ const handleLogin = () => {
     <div onClick={()=> auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())} className='log-button google'>
     <GoogleOutlined /> Sign in with Google
     </div>
-    < br/>     < br/>
+    < br/>  
+    {errorValue&&< br/>}
+    {errorValue&&<b><h5 className="redTextclass">Your Input was Invalid. Please try again</h5></b>}
+   < br/>
 
     </div>
     )

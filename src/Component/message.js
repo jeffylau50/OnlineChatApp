@@ -5,10 +5,6 @@ import "./message.css";
 
 
 function Message(props) {
-    
-
-   
-    
         
         const {text, uid, photoURL, createdAt, displayName} = props.message;
         
