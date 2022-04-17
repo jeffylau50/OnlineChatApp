@@ -14,10 +14,11 @@ Although this app was mainly developed for the desktop web platform, mobile adap
 
 ***iPhone 11 Demo***
 
-![mobileDemo1](https://github.com/jeffylau50/OnlineChatApp/blob/master/demo/mobileDemo1.mov)
+![mobileDemo1](https://github.com/jeffylau50/OnlineChatApp/blob/master/demo/mobileDemo1.gif)
 
 
-![mobileDemo2](https://github.com/jeffylau50/OnlineChatApp/blob/master/demo/mobileDemo2.mov)
+
+![mobileDemo2](https://github.com/jeffylau50/OnlineChatApp/blob/master/demo/mobileDemo2.gif)
 
 ## Table of Contents
 
