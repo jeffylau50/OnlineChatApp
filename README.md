@@ -15,7 +15,7 @@ Deployment: Heroku
 ## Table of Contents
 
 - [Installation](#installation)
-
+- [Feature](#feature)
 
 ## Installation  
   
@@ -31,6 +31,19 @@ $ npm start
 
 ---
 
+## Feature
 
+### Sign in and Register Methods
 
+1. Email/ Password  
+  
+2. Google Account
+
+### Icon Feature
+
+1. For users that signed in with their Google account. Orange Chat will use their default Google account profile picture as their chat icon in app.
+
+2. For users that registered via the built in Email/ Password system, users will get a randomly assigned in-app icon which can be chosen in the register page. 
+
+<img src='https://res.cloudinary.com/djgjwxdih/image/upload/v1650176141/github/IconRandom_k0v6pp.gif'>
 
