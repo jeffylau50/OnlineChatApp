@@ -1,21 +1,28 @@
 # Orange Chat | Online Chat App
 
-This Full Stack Online Chat App was built with React.js and Firebase 
+This Full Stack Online Chat App was built with React.js and Firebase. 
 
 Deployed on Heroku: [https://orangechat1.herokuapp.com/]
 
 Front End: HTML, CSS, Bootstrap, Javascript, React.js  
 Back End: Firebase  
 Deployment: Heroku  
-  
+
 ***This Online Chat App achieved a score of 97% on Google PageSpeed Insights***
 
-![Google PageSpeed Insights](https://res.cloudinary.com/djgjwxdih/image/upload/v1650090287/github/Capture_hvbp9k.png)
+Although this app was mainly developed for the desktop web platform, mobile adaptability was also one of the main focus of this project. Therefore, Responsive design was used in this project. This chat app should work on most mobile devices as shown below.
+
+***iPhone 11 Demo***
+
+<img src='https://res.cloudinary.com/djgjwxdih/video/upload/v1650179251/github/mobileDemo2_fk7nj6.mov'>
+
+<img src='https://res.cloudinary.com/djgjwxdih/video/upload/v1650179253/github/mobileDemo1_egmnbo.mov'>
 
 ## Table of Contents
 
 - [Installation](#installation)
 - [Feature](#feature)
+- [Performance](#Performance)
 
 ## Installation  
   
@@ -25,6 +32,7 @@ Deployment: Heroku
 
 ```shell
 $ npm install
+$ npm run build
 $ npm start
 
 ```
@@ -47,3 +55,8 @@ $ npm start
 
 <img src='https://res.cloudinary.com/djgjwxdih/image/upload/v1650176141/github/IconRandom_k0v6pp.gif'>
 
+### Performance
+
+***This Online Chat App achieved a score of 97% on Google PageSpeed Insights***
+
+![Google PageSpeed Insights](https://res.cloudinary.com/djgjwxdih/image/upload/v1650090287/github/Capture_hvbp9k.png)
