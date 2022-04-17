@@ -69,13 +69,13 @@ $ npm start
 
 Unlike mobile platform, desktop/laptop users may not have easy access to Emoji since most personal computer operating system does not come built in with an Emoji keyboard. Therefore, I added an Emoji Picker into the application for better user experience.
 
-<img src="https://github.com/jeffylau50/OnlineChatApp/blob/master/demo/emojiDemo.png"/>
+<img src="https://github.com/jeffylau50/OnlineChatApp/blob/master/demo/emojiDemo.PNG"/>
 
 ### Multipe Chat Rooms
 
 Users are able to select chat room on the left. There are 3 pre set chat rooms in the application.
 
-<img src="https://github.com/jeffylau50/OnlineChatApp/blob/master/demo/switchRoomDemo.gif"/>
+<img src="https://github.com/jeffylau50/OnlineChatApp/blob/master/demo/swichRoomDemo.gif"/>
 
 ### Performance
 
