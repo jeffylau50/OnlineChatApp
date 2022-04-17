@@ -14,9 +14,9 @@ Although this app was mainly developed for the desktop web platform, mobile adap
 
 ***iPhone 11 Demo***
 
-<img src='https://res.cloudinary.com/djgjwxdih/video/upload/v1650179251/github/mobileDemo2_fk7nj6.mov'>
+![mobileDemo1](https://github.com/jeffylau50/OnlineChatApp/tree/master/demo/mobileDemo1.gif)
 
-<img src='https://res.cloudinary.com/djgjwxdih/video/upload/v1650179253/github/mobileDemo1_egmnbo.mov'>
+![mobileDemo2](https://github.com/jeffylau50/OnlineChatApp/tree/master/demo/mobileDemo2.gif)
 
 ## Table of Contents
 
