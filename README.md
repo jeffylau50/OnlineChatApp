@@ -77,13 +77,13 @@ Users are able to select chat room on the left. There are 3 pre set chat rooms i
 
 <img src="https://github.com/jeffylau50/OnlineChatApp/blob/master/demo/swichRoomDemo.gif"/>
 
-### Performance
+## Performance
 
-## Client Side Routing
+### Client Side Routing
 
 Instead of traditional server side routing, I opted to use client side routing with react router dom. This can greatly improved user experience because every component is rendered all at once which eliminated the loading process between different pages of the site. As a result, this makes the entire application appears to run a lot smoother for the user.
 
-## Performance Scores
+### Performance Scores
 
 ***This Online Chat App achieved a score of 97% on Google PageSpeed Insights***
 
