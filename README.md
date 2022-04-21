@@ -71,7 +71,7 @@ Unlike mobile platform, desktop/laptop users may not have easy access to Emoji s
 
 <img src="https://github.com/jeffylau50/OnlineChatApp/blob/master/demo/emojiDemo.PNG"/>
 
-### Multipe Chat Rooms
+### Multiple Chat Rooms
 
 Users are able to select chat room on the left. There are 3 pre set chat rooms in the application.
 
