@@ -6,7 +6,7 @@ import firebase from "firebase/compat/app";
 import 'firebase/compat/app';
 import { auth }  from '../firebase';
 import { AuthContext } from '../context/AuthContext';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signInWithPopup} from "firebase/auth";
 
 
 function Login(){
@@ -69,7 +69,7 @@ const handleLogin = () => {
     </form>
     <h3>- or -</h3>
     <br/>
-    <div onClick={()=> auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())} className='log-button google customGooglebutton'>
+    <div onClick={()=> auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())} className='log-button google customGooglebutton'>
     <GoogleOutlined /> Sign in with Google
     </div>
     < br/>  
